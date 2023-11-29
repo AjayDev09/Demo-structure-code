@@ -29,7 +29,7 @@ const HeaderComponents = ({ navigation, title }) => {
             }} style={{ paddingRight: 2, marginRight: 0 }} >
               <Image
                 source={require('../assets/menu.png')}
-                style={{ width: 20, height: 20, marginLeft: 10 }}
+                style={{ width: 20, height: 20, marginLeft: 10,tintColor:'#fff' }}
               />
             </TouchableOpacity>
           </View>
