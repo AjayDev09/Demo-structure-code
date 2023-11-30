@@ -48,7 +48,7 @@ const SignIn = ({navigation}) => {
             setDataInAsync('Login', true);
           })();
             navigation.replace('DrawbleStack');
-            Toast.show('Logging successfully.', Toast.LONG);
+            Toast.show('Logging successfully.', Toast.SHORT);
 
           }}
           title="Sign In"

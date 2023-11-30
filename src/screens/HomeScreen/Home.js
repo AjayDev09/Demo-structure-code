@@ -20,51 +20,12 @@ const Home = ({navigation}) => {
   const handler = (v, i) => {
     setData(e => ({ ...e, [i]: v }));
   };
-  const BottomMenu = () => {
-    return (
-      
-        <View style={styles.BottomViewContainer} >
-          <View style={styles.ViewMain}>
 
-            <View>
-              <Image source={require('../../assets/home.png')} style={{
-                height: 20,
-                width: 20,
-              }} />
-            </View>
-            <View>
-              <Image source={require('../../assets/search.png')} style={{
-                height: 20,
-                width: 20,
-              }} />
-            </View>
-            <View>
-              <Image source={require('../../assets/plus.png')} style={{
-                height: 20,
-                width: 20,
-                tintColor: '#fff',
-                backgroundColor: '#ccc',
-                borderRadius: 16
-              }} />
-            </View>
-            <View>
-              <Image source={require('../../assets/default_user.png')} style={{
-                height: 20,
-                width: 20,
-              }} />
-            </View>
-
-          </View>
-        </View>
-      
-    )
-  }
 console.log('data-----',Data);
   return (
-    <View
-     style={{
-      // width:'100%',
-      // height:'100%'
+    <View style={{
+      backgroundColor:COLORS.secondary,
+
     }}>
       <UserInsta navigation={navigation} /> 
     </View>

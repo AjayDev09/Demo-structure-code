@@ -9,6 +9,7 @@ import { getDataForAsync } from '../../CommanFunctions/CommanFunction';
 import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
+import UploadedFile from '../../screens/UploadedFileForInsta/UploadedFile';
 const Stack = createStackNavigator();
 const DrawRoutes = () => {
     return (
@@ -30,6 +31,11 @@ const DrawRoutes = () => {
                     <Stack.Screen
                         name="SignIn"
                         component={SignIn}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name="UploadedFile"
+                        component={UploadedFile}
                         options={{ headerShown: false }}
                     />
                 </>

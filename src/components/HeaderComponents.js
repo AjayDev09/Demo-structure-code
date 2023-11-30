@@ -3,7 +3,7 @@ import React from 'react'
 import { COLORS } from '../theme/color'
 import { DrawerActions } from '@react-navigation/native';
 
-const HeaderComponents = ({ navigation, title }) => {
+const HeaderComponents = ({ navigation, title,isBackShow=false }) => {
   const toggleDrawer = () => {
     //Props to open/close the drawer
     navigation.dispatch(DrawerActions.openDrawer());
@@ -24,14 +24,23 @@ const HeaderComponents = ({ navigation, title }) => {
         }}>
 
           <View>
-            <TouchableOpacity onPress={() => {
+            {isBackShow?
+            <TouchableOpacity onPress={()=>{
+              navigation.goBack()
+            }}>
+                            <Image
+                source={require('../assets/arrow_back.png')}
+                style={{ width: 20, height: 20, marginLeft: 10,tintColor:'#fff' }}
+              />
+            </TouchableOpacity>
+            :<TouchableOpacity onPress={() => {
               toggleDrawer()
             }} style={{ paddingRight: 2, marginRight: 0 }} >
               <Image
                 source={require('../assets/menu.png')}
                 style={{ width: 20, height: 20, marginLeft: 10,tintColor:'#fff' }}
               />
-            </TouchableOpacity>
+            </TouchableOpacity>}
           </View>
           <View>
             <Text style={{
