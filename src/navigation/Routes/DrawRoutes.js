@@ -9,7 +9,7 @@ import { getDataForAsync } from '../../CommanFunctions/CommanFunction';
 import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
-import UploadedFile from '../../screens/UploadedFileForInsta/UploadedFile';
+
 const Stack = createStackNavigator();
 const DrawRoutes = () => {
     return (

@@ -9,14 +9,11 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import AuthApp from './AuthApp';
 import { getDataForAsync } from './src/CommanFunctions/CommanFunction';
-import messaging from '@react-native-firebase/messaging';
 
 const index = () => {
   
 }
-messaging().setBackgroundMessageHandler(async remoteMessage => {
-    console.log('Message handled in the background!', remoteMessage);
-});
+
 AppRegistry.registerRunnable(appName, async initialProps => {
     
       

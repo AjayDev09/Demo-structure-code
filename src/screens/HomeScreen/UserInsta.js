@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, FlatList, ScrollView, TouchableOpacity }
 import React, { useState } from 'react'
 import { COLORS } from '../../theme/color'
 import HeaderComponents from '../../components/HeaderComponents'
-import Video from 'react-native-video'
+
 import Volume from '../../assets/volume.png'
 import Mute from '../../assets/mute.png'
 
@@ -119,7 +119,7 @@ const UserInsta = ({ navigation }) => {
                     }}>•  Connect</Text>
                 </View>
             </View>
-            <View style={styles.containerimage}>
+            {/* <View style={styles.containerimage}>
                {item?.userimage?
                 <Image
                 source={item.userimage}
@@ -150,7 +150,7 @@ const UserInsta = ({ navigation }) => {
                 }
                       
 
-            </View>
+            </View> */}
             <View style={{
                 flexDirection:"row",
                 alignItems:"center",

@@ -9,7 +9,8 @@ import { useState } from 'react';
 import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
 import SignUp from '../../screens/Registration/SignUp';
-import UploadedFile from '../../screens/UploadedFileForInsta/UploadedFile';
+import Livestream from '../../screens/LivestreanDemo/Livestream';
+
 const Stack = createStackNavigator();
 const Routes = () => {
   const [isLogin, setIsLogin] = useState()
@@ -26,7 +27,11 @@ const Routes = () => {
       <Stack.Navigator screenOptions={{ animation: 'flip' }}>
 
         <>
-
+          <Stack.Screen
+            name="Livestream"
+            component={Livestream}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="SignIn"
             component={SignIn}
@@ -42,11 +47,7 @@ const Routes = () => {
             component={SignUp}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="UploadedFile"
-            component={UploadedFile}
-            options={{ headerShown: false }}
-          />
+
         </>
 
 
