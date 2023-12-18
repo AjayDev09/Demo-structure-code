@@ -21,7 +21,7 @@ const Home = ({navigation}) => {
     setData(e => ({ ...e, [i]: v }));
   };
 
-console.log('data---0000--',Data);
+console.log('data---0000------',Data);
   return (
     <View style={{
       backgroundColor:COLORS.secondary,
