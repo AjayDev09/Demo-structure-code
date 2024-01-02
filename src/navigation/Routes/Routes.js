@@ -27,11 +27,11 @@ const Routes = () => {
       <Stack.Navigator screenOptions={{ animation: 'flip' }}>
 
         <>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Livestream"
             component={Livestream}
             options={{ headerShown: false }}
-          />
+          /> */}
           <Stack.Screen
             name="SignIn"
             component={SignIn}

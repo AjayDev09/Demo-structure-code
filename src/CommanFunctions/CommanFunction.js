@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image, TouchableHighlight } from "react-native";
+import SQLite from 'react-native-sqlite-storage';
 import React from "react";
 export function removeItem(key) {
   return AsyncStorage.removeItem(key);
@@ -21,3 +22,19 @@ export async function getDataForAsync(key) {
 
 
 }
+
+
+export const db = SQLite.openDatabase({ name: 'mydatabase.db', location: 'default' });
+
+export const  executeSql = async (query, params = []) => {
+  return new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        query,
+        params,
+        (_, resultSet) => resolve(resultSet),
+        (_, error) => reject(error)
+      );
+    });
+  });
+};

@@ -9,33 +9,33 @@ import Mute from '../../assets/mute.png'
 
 const Alldata = [
     {
-      username: 'xyz',
-      userimage: require('../../assets/post10.jpg'),
-      uservideo: '',
+        username: 'xyz',
+        userimage: require('../../assets/post10.jpg'),
+        uservideo: '',
     },
     {
-      username: 'xyz',
-      userimage: '',
-      uservideo: require('../../assets/sample-5s.mp4'),
+        username: 'xyz',
+        userimage: '',
+        uservideo: ''
     },
     {
-      username: 'xyz',
-      userimage: require('../../assets/post10.jpg'),
-      uservideo: '',
+        username: 'xyz',
+        userimage: require('../../assets/post10.jpg'),
+        uservideo: '',
     },
     {
-      username: 'xyz',
-      userimage: '',
-      uservideo: require('../../assets/lights.mp4'),
+        username: 'xyz',
+        userimage: '',
+        uservideo: ''
     },
-  ];
+];
 
 const UserInsta = ({ navigation }) => {
 
     const [isMuted, setIsMuted] = useState(false);
 
     const toggleMute = () => {
-      setIsMuted(!isMuted);
+        setIsMuted(!isMuted);
     };
     const data = Array.from({ length: 50 }, (_, index) => ({ key: index.toString(), text: `Item ${index}` }));
     const BottomMenu = () => {
@@ -44,8 +44,8 @@ const UserInsta = ({ navigation }) => {
             <View style={styles.BottomViewContainer} >
                 <View style={styles.ViewMain}>
 
-                    <TouchableOpacity onPress={()=>{
-                        
+                    <TouchableOpacity onPress={() => {
+
                     }}>
                         <Image source={require('../../assets/home.png')} style={{
                             height: 20,
@@ -67,7 +67,7 @@ const UserInsta = ({ navigation }) => {
                             borderRadius: 16
                         }} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity onPress={() => {
                         navigation.navigate('UserProfileForInsta')
                     }}>
                         <Image source={require('../../assets/default_user.png')} style={{
@@ -90,13 +90,13 @@ const UserInsta = ({ navigation }) => {
                 justifyContent: "space-between"
             }}>
                 <TouchableOpacity
-                onPress={()=>{
-                    navigation.navigate('UserProfileForInsta')
-                }}
-                style={{
-                    flexDirection: "row",
-                    alignItems: "center"
-                }}>
+                    onPress={() => {
+                        navigation.navigate('UserProfileForInsta')
+                    }}
+                    style={{
+                        flexDirection: "row",
+                        alignItems: "center"
+                    }}>
                     <Image source={require('../../assets/default_user.png')} style={{
                         height: 30,
                         width: 30
@@ -119,87 +119,85 @@ const UserInsta = ({ navigation }) => {
                     }}>•  Connect</Text>
                 </View>
             </View>
-            {/* <View style={styles.containerimage}>
-               {item?.userimage?
-                <Image
-                source={item.userimage}
-                    style={styles.image}
-                />
-                 :
-                 <>
-            <Video
+            <View style={styles.containerimage}>
+                {item?.userimage ?
+                    <Image
+                        source={item.userimage}
+                        style={styles.image}
+                    />
+                    :
+                    <>
+                        {/* <Video
                   source={item.uservideo}
                     style={styles.image}
                     resizeMode="cover"
                     repeat
                     muted={!isMuted}
-                />
-                <TouchableOpacity style={styles.muteButton} onPress={toggleMute}>
-                        <Image 
-                        source={isMuted?require('../../assets/volume.png'):require('../../assets/mute.png')}
-                        style={{
-                            height:20,
-                            width:20,
-                          
-                        }}
+                /> */}
+                        <TouchableOpacity style={styles.muteButton} onPress={toggleMute}>
+                            <Image
+                                source={isMuted ? require('../../assets/volume.png') : require('../../assets/mute.png')}
+                                style={{
+                                    height: 20,
+                                    width: 20,
 
-                        />
-                     </TouchableOpacity>
-                 </>
-           
+                                }}
+
+                            />
+                        </TouchableOpacity>
+                    </>
                 }
-                      
 
-            </View> */}
+            </View>
             <View style={{
-                flexDirection:"row",
-                alignItems:"center",
-                padding:10,
-                paddingHorizontal:15,
-                justifyContent:"space-between"
+                flexDirection: "row",
+                alignItems: "center",
+                padding: 10,
+                paddingHorizontal: 15,
+                justifyContent: "space-between"
             }}>
                 <View style={{
-                    flexDirection:"row",
+                    flexDirection: "row",
                 }}>
                     <View>
                         <Image source={require('../../assets/heart.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
                     </View>
                     <View style={{
-                        marginLeft:15
+                        marginLeft: 15
                     }}>
                         <Image source={require('../../assets/chat-bubble.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
                     </View>
                     <View style={{
-                        marginLeft:15
+                        marginLeft: 15
                     }}>
                         <Image source={require('../../assets/share.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
                     </View>
                 </View>
-                        <View>
-                            <Text style={{
-                                color:'#fff',
-                                fontSize:16,
-                                fontWeight:'700'
-                            }}>2023-11-28 05:26</Text>
-                        </View>
+                <View>
+                    <Text style={{
+                        color: '#fff',
+                        fontSize: 16,
+                        fontWeight: '700'
+                    }}>2023-11-28 05:26</Text>
+                </View>
             </View>
 
         </View>
@@ -252,19 +250,19 @@ const styles = StyleSheet.create({
         flex: 1
     },
     containerimage: {
-        width: '100%', // Adjust the width as needed
-        height: 300, // Adjust the height as needed
+        width: '100%',
+        height: 300,
         borderRadius: 8,
         overflow: 'hidden',
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 3,
-    
+
     },
     image: {
         width: '100%',
@@ -277,8 +275,8 @@ const styles = StyleSheet.create({
         right: 10,
         padding: 8,
         borderRadius: 34,
-        backgroundColor:'rgb(120, 120, 120)',
-      },
+        backgroundColor: 'rgb(120, 120, 120)',
+    },
 })
 
 export default UserInsta
