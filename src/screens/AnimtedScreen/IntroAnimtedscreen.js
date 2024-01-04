@@ -285,7 +285,7 @@ const IntroAnimtedscreen = ({navigation}) => {
     ref?.current.scrollToOffset({offset});
     setCurrentSlideIndex(lastSlideIndex);
   };
-
+  console.log('currentSlideIndex',currentSlideIndex);
   const Footer = () => {
     return (
       <View
@@ -324,7 +324,7 @@ const IntroAnimtedscreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => navigation.navigate('Home')}>
-                <Text style={{fontWeight: 'bold', fontSize: 15}}>
+                <Text style={{fontWeight: 'bold', fontSize: 15,color:'#000'}}>
                   GET STARTED
                 </Text>
               </TouchableOpacity>
@@ -360,6 +360,7 @@ const IntroAnimtedscreen = ({navigation}) => {
                   style={{
                     fontWeight: 'bold',
                     fontSize: 15,
+                    color:'#000'
                   }}>
                   NEXT
                 </Text>
