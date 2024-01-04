@@ -11,6 +11,8 @@ import AlretModel from '../../components/AlretModel';
 import DrawbleStack from '../DrawbleStack';
 import Home from '../../screens/AnimtedScreen/E-commecer-Animated/Home';
 import ProductDetails from '../../screens/AnimtedScreen/E-commecer-Animated/ProductDetails';
+import ScrollableTabViewReanimated from '../../screens/AnimtedScreen/ScrollableTabViewReanimated';
+import IntroAnimtedscreen from '../../screens/AnimtedScreen/IntroAnimtedscreen';
 
 const Stack = createStackNavigator();
 const DrawRoutes = () => {
@@ -24,6 +26,12 @@ const DrawRoutes = () => {
             <Stack.Navigator screenOptions={{ animation: 'flip' }}>
 
                 <>
+                <Stack.Screen
+                        name="IntroAnimtedscreen"
+                        component={IntroAnimtedscreen}
+                        options={options}
+
+                    />
                     <Stack.Screen
                         name="Home"
                         component={Home}
