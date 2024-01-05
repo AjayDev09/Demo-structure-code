@@ -1,6 +1,7 @@
 import {
     FlatList,
     Pressable,
+    StatusBar,
     StyleSheet,
     Text,
     TouchableOpacity,
@@ -137,7 +138,7 @@ import {
     return (
       <View style={styles.container}>
         <SafeAreaView />
-  
+        <StatusBar backgroundColor={'#ffe0cc'} />
         {/* Header */}
         <View style={styles.Header}>
           <Animated.View entering={FadeInLeft.delay(100).duration(400)}>
@@ -184,7 +185,7 @@ import {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-   
+      backgroundColor:"#ffe0cc"
     },
     Header: {
       flexDirection: "row",

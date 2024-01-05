@@ -13,6 +13,8 @@ import Home from '../../screens/AnimtedScreen/E-commecer-Animated/Home';
 import ProductDetails from '../../screens/AnimtedScreen/E-commecer-Animated/ProductDetails';
 import ScrollableTabViewReanimated from '../../screens/AnimtedScreen/ScrollableTabViewReanimated';
 import IntroAnimtedscreen from '../../screens/AnimtedScreen/IntroAnimtedscreen';
+import SKeletenAnimationLoading from '../../screens/AnimtedScreen/SKeletenAnimationLoading';
+import TinderNolibrey from '../../screens/AnimtedScreen/TinderNolibrey';
 
 const Stack = createStackNavigator();
 const DrawRoutes = () => {
@@ -26,6 +28,7 @@ const DrawRoutes = () => {
             <Stack.Navigator screenOptions={{ animation: 'flip' }}>
 
                 <>
+              
                 <Stack.Screen
                         name="IntroAnimtedscreen"
                         component={IntroAnimtedscreen}
@@ -44,12 +47,22 @@ const DrawRoutes = () => {
                         options={options}
 
                     />
+                      <Stack.Screen
+                        name="SKeletenAnimationLoading"
+                        component={SKeletenAnimationLoading}
+                        options={options}
+
+                    />
                     <Stack.Screen
                         name="DrawbleStack"
                         component={DrawbleStack}
                           options={options}
                     />
-
+                  <Stack.Screen
+                        name="TinderNolibrey"
+                        component={TinderNolibrey}
+                          options={options}
+                    />
                     <Stack.Screen
                         name="AlretModel"
                         component={AlretModel}

@@ -176,6 +176,7 @@ import { useRef } from "react";
   const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor:"#ffe0cc"
     },
     greyBackground: {
         // height: 350,

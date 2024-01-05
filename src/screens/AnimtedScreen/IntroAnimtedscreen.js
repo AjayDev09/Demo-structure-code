@@ -12,14 +12,14 @@
 //             dots.push(
 //               <TouchableOpacity key={i} onPress={() => onPress(i)} style={styles.paginationDot}>
 //                 <View style={[styles.dotText, i === index && styles.activeDotText]}>
-              
+
 //                 </View>
 //               </TouchableOpacity>
 //             );
 //           }
 //           return dots;
 //         };
-      
+
 //         return <Animated.View  style={styles.paginationContainer}>{renderPaginationDots()}</Animated.View>;
 //       };
 //     const OnboardingScreen1 = ({ navigation }) => {
@@ -28,7 +28,7 @@
 //         //   // For example, navigate to the main app screen
 //         //   navigation.navigate('MainApp');
 //         };
-      
+
 //         return (
 //           <View style={styles.slide}>
 //             <Image style={styles.image} source={require('../../assets/post10.jpg')} />
@@ -45,7 +45,7 @@
 //         //   // For example, navigate to the main app screen
 //         //   navigation.navigate('MainApp');
 //         };
-      
+
 //         return (
 //           <View style={styles.slide}>
 //             <Image style={styles.image} source={require('../../assets/post10.jpg')} />
@@ -62,7 +62,7 @@
 //           // For example, navigate to the main app screen
 //           navigation.navigate('Home');
 //         };
-      
+
 //         return (
 //           <View style={styles.slide}>
 //             <Image style={styles.image} source={require('../../assets/post10.jpg')} />
@@ -105,15 +105,15 @@
 //         }}>
 //       <CustomPagination total={total} index={index} onPress={handlePaginationPress} />
 //         </View>
-  
+
 //       )}
 //       horizontal={true}>
 //       <OnboardingScreen1 />
 //       <OnboardingScreen2 />
 //       <OnboardingScreen3 navigation={navigation} />
-  
+
 //     </Swiper>
-  
+
 //   </>
 //   )
 // }
@@ -152,7 +152,7 @@
 //         flexDirection: 'row',
 //         justifyContent: 'center',
 //         alignItems: 'center',
-     
+
 //       },
 //       paginationDot: {
 //         margin: 5,
@@ -169,7 +169,7 @@
 //         borderRadius:10,
 //         width:10
 
-        
+
 //       },
 //       buttonContainer: {
 //         flexDirection: 'row',
@@ -193,8 +193,8 @@
 //         fontWeight: 'bold',
 //       },
 //   });
-  
-  
+
+
 // export default IntroAnimtedscreen
 
 
@@ -213,9 +213,9 @@ import {
   Dimensions,
 } from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const COLORS = {primary: '#944dff', white: '#fff'};
+const COLORS = { primary: '#fff', white: '#000' };
 
 
 
@@ -225,33 +225,31 @@ const slides = [
     image: require('../../assets/image1.png'),
     title: 'Best Digital Solution',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    backgroundColor:'#b380ff'
   },
   {
     id: '2',
     image: require('../../assets/image2.png'),
     title: 'Achieve Your Goals',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    backgroundColor:'#ffc299'
   },
   {
     id: '3',
     image: require('../../assets/image3.png'),
     title: 'Increase Your Value',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    backgroundColor:'pink'
   },
-//   {
-//     id: '4',
-//     image: require('../../assets/image2.png'),
-//     title: 'Achieve Your Goals',
-//     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//   },
+  
 ];
 
-const Slide = ({item}) => {
+const Slide = ({ item }) => {
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={{ alignItems: 'center'}}>
       <Image
         source={item?.image}
-        style={{height: '75%', width, resizeMode: 'contain'}}
+        style={{ height: '75%', width, resizeMode: 'contain' }}
       />
       <View>
         <Text style={styles.title}>{item?.title}</Text>
@@ -261,7 +259,7 @@ const Slide = ({item}) => {
   );
 };
 
-const IntroAnimtedscreen = ({navigation}) => {
+const IntroAnimtedscreen = ({ navigation }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
   const ref = React.useRef();
   const updateCurrentSlideIndex = e => {
@@ -274,7 +272,7 @@ const IntroAnimtedscreen = ({navigation}) => {
     const nextSlideIndex = currentSlideIndex + 1;
     if (nextSlideIndex != slides.length) {
       const offset = nextSlideIndex * width;
-      ref?.current.scrollToOffset({offset});
+      ref?.current.scrollToOffset({ offset });
       setCurrentSlideIndex(currentSlideIndex + 1);
     }
   };
@@ -282,110 +280,97 @@ const IntroAnimtedscreen = ({navigation}) => {
   const skip = () => {
     const lastSlideIndex = slides.length - 1;
     const offset = lastSlideIndex * width;
-    ref?.current.scrollToOffset({offset});
+    ref?.current.scrollToOffset({ offset });
     setCurrentSlideIndex(lastSlideIndex);
   };
-  console.log('currentSlideIndex',currentSlideIndex);
+  console.log('currentSlideIndex', currentSlideIndex);
   const Footer = () => {
     return (
-      <View
-        style={{
-          height: height * 0.25,
-          justifyContent: 'space-between',
-          paddingHorizontal: 20,
-        }}>
-        {/* Indicator container */}
+    
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'center',
-            marginTop: 20,
+             justifyContent: 'space-between',
+             alignItems: 'center',
+            paddingHorizontal: 30,
+            backgroundColor: 'rgba(255, 255, 255, 0.6)',
+            paddingVertical:20
           }}>
-          {/* Render indicator */}
-          {slides.map((_, index) => (
-            <View
-              key={index}
-              style={[
-                styles.indicator,
-                currentSlideIndex == index && {
-                  backgroundColor: COLORS.white,
-                  width: 25,
-                
-                },
-              ]}
-            />
-          ))}
-        </View>
 
-        {/* Render buttons */}
-        <View style={{marginBottom: 20}}>
-          {currentSlideIndex == slides.length - 1 ? (
-            <View style={{height: 50}}>
-              <TouchableOpacity
-                style={styles.btn}
-                onPress={() => navigation.navigate('Home')}>
-                <Text style={{fontWeight: 'bold', fontSize: 15,color:'#000'}}>
-                  GET STARTED
-                </Text>
-              </TouchableOpacity>
-            </View>
-          ) : (
-            <View style={{flexDirection: 'row'}}>
-              <TouchableOpacity
-                activeOpacity={0.8}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              style={[
+                styles.btn,
+
+              ]}
+              onPress={skip}>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 15,
+                  color: COLORS.white,
+                }}>
+               {currentSlideIndex != slides.length - 1? 'Skip':''}
+              </Text>
+            </TouchableOpacity> 
+          {/* Render indicator */}
+          <View style={{
+            flexDirection: 'row'
+          }}>
+            {slides.map((_, index) => (
+              <View
+                key={index}
                 style={[
-                  styles.btn,
-                  {
-                    borderColor: COLORS.white,
-                    borderWidth: 1,
-                    backgroundColor: 'transparent',
+                  styles.indicator,
+                  currentSlideIndex == index && {
+                    backgroundColor: '#944dff',
+                    width: 25,
+                    height: 3.5,
                   },
                 ]}
-                onPress={skip}>
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: 15,
-                    color: COLORS.white,
-                  }}>
-                  SKIP
-                </Text>
-              </TouchableOpacity>
-              <View style={{width: 15}} />
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={goToNextSlide}
-                style={styles.btn}>
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: 15,
-                    color:'#000'
-                  }}>
-                  NEXT
-                </Text>
-              </TouchableOpacity>
-            </View>
-          )}
+              />
+            ))}
+          </View>
+
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              currentSlideIndex == slides.length - 1 ? navigation.navigate('Home') : goToNextSlide()
+            }}
+
+            style={styles.btn}>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: 15,
+                color: '#000'
+              }}>
+              {currentSlideIndex == slides.length - 1 ? 'Done' : 'Next'}
+            </Text>
+          </TouchableOpacity>
         </View>
-      </View>
+
     );
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
-      <StatusBar backgroundColor={COLORS.primary} />
-      <FlatList
-        ref={ref}
-        onMomentumScrollEnd={updateCurrentSlideIndex}
-        contentContainerStyle={{height: height * 0.75}}
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        data={slides}
-        pagingEnabled
-        renderItem={({item}) => <Slide item={item} />}
-      />
-      <Footer />
+    <SafeAreaView style={{ flex: 1, backgroundColor: slides[currentSlideIndex]?.backgroundColor || COLORS.primary  }}>
+      <StatusBar backgroundColor={slides[currentSlideIndex]?.backgroundColor || COLORS.primary } />
+  
+        <FlatList
+          ref={ref}
+          onMomentumScrollEnd={updateCurrentSlideIndex}
+          contentContainerStyle={{ flexGrow: 1 }}
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={slides}
+          pagingEnabled
+          renderItem={({ item }) => <Slide item={item} />}
+        />
+        <View style={{}}>
+        <Footer />
+        </View>
+    
     </SafeAreaView>
   );
 };
@@ -412,19 +397,16 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   indicator: {
-    height: 3.5,
-    width: 10,
+    height: 3,
+    width: 12,
     backgroundColor: 'grey',
     marginHorizontal: 3,
     borderRadius: 2,
   },
   btn: {
-    flex: 1,
-    height: 50,
-    borderRadius: 5,
-    backgroundColor: '#fff',    
-    justifyContent: 'center',
-    alignItems: 'center',
+    // flex: 1,    
+    // justifyContent: 'flex-start',
+    // alignItems: 'center',
   },
 });
 export default IntroAnimtedscreen;
