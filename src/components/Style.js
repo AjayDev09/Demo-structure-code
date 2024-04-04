@@ -9,6 +9,8 @@ const dimensions = {
 export default StyleSheet.create({
   max: {
     flex: 1,
+    alignItems:"center",
+    
   },
   buttonHolder: {
     height: 100,

@@ -33,11 +33,7 @@ const DrawRoutes = () => {
                         component={SignIn}
                         options={{ headerShown: false }}
                     />
-                    <Stack.Screen
-                        name="UploadedFile"
-                        component={UploadedFile}
-                        options={{ headerShown: false }}
-                    />
+                  
                 </>
 
 

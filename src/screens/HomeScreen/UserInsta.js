@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, FlatList, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, FlatList, ScrollView, TouchableOpacity, Button } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS } from '../../theme/color'
 import HeaderComponents from '../../components/HeaderComponents'
@@ -6,36 +6,50 @@ import HeaderComponents from '../../components/HeaderComponents'
 import Volume from '../../assets/volume.png'
 import Mute from '../../assets/mute.png'
 
+import BottomSheet, { useBottomSheetModal } from '@gorhom/bottom-sheet';
+import { useRef } from 'react'
+import { useMemo } from 'react'
+import { useCallback } from 'react'
 
 const Alldata = [
     {
-      username: 'xyz',
-      userimage: require('../../assets/post10.jpg'),
-      uservideo: '',
+        username: 'xyz',
+        userimage: require('../../assets/post10.jpg'),
+        uservideo: '',
     },
     {
-      username: 'xyz',
-      userimage: '',
-      uservideo: require('../../assets/sample-5s.mp4'),
+        username: 'xyz',
+        userimage: '',
+        uservideo: require('../../assets/sample-5s.mp4'),
     },
     {
-      username: 'xyz',
-      userimage: require('../../assets/post10.jpg'),
-      uservideo: '',
+        username: 'xyz',
+        userimage: require('../../assets/post10.jpg'),
+        uservideo: '',
     },
     {
-      username: 'xyz',
-      userimage: '',
-      uservideo: require('../../assets/lights.mp4'),
+        username: 'xyz',
+        userimage: '',
+        uservideo: require('../../assets/lights.mp4'),
     },
-  ];
+];
 
 const UserInsta = ({ navigation }) => {
+    // ref
+    const bottomSheetRef = useRef(null);
 
+    // variables
+    const snapPoints = useMemo(() => ['25%', '95%'], []);
+
+    // callbacks
+    const handleSheetChanges = useCallback((index) => {
+        console.log('handleSheetChanges', index);
+    }, []);
     const [isMuted, setIsMuted] = useState(false);
-
+    const [isBottamsheet, setisBottamsheet] = useState(false);
+    // const { dismiss, dismissAll } = useBottomSheetModal();
     const toggleMute = () => {
-      setIsMuted(!isMuted);
+        setIsMuted(!isMuted);
     };
     const data = Array.from({ length: 50 }, (_, index) => ({ key: index.toString(), text: `Item ${index}` }));
     const BottomMenu = () => {
@@ -44,8 +58,8 @@ const UserInsta = ({ navigation }) => {
             <View style={styles.BottomViewContainer} >
                 <View style={styles.ViewMain}>
 
-                    <TouchableOpacity onPress={()=>{
-                        
+                    <TouchableOpacity onPress={() => {
+
                     }}>
                         <Image source={require('../../assets/home.png')} style={{
                             height: 20,
@@ -67,7 +81,7 @@ const UserInsta = ({ navigation }) => {
                             borderRadius: 16
                         }} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{
+                    <TouchableOpacity onPress={() => {
                         navigation.navigate('UserProfileForInsta')
                     }}>
                         <Image source={require('../../assets/default_user.png')} style={{
@@ -90,13 +104,13 @@ const UserInsta = ({ navigation }) => {
                 justifyContent: "space-between"
             }}>
                 <TouchableOpacity
-                onPress={()=>{
-                    navigation.navigate('UserProfileForInsta')
-                }}
-                style={{
-                    flexDirection: "row",
-                    alignItems: "center"
-                }}>
+                    onPress={() => {
+                        navigation.navigate('UserProfileForInsta')
+                    }}
+                    style={{
+                        flexDirection: "row",
+                        alignItems: "center"
+                    }}>
                     <Image source={require('../../assets/default_user.png')} style={{
                         height: 30,
                         width: 30
@@ -119,96 +133,101 @@ const UserInsta = ({ navigation }) => {
                     }}>•  Connect</Text>
                 </View>
             </View>
-            {/* <View style={styles.containerimage}>
-               {item?.userimage?
-                <Image
-                source={item.userimage}
-                    style={styles.image}
-                />
-                 :
-                 <>
-            <Video
+            <View style={styles.containerimage}>
+                {item?.userimage ?
+                    <Image
+                        source={item.userimage}
+                        style={styles.image}
+                    />
+                    :
+                    <>
+                        {/* <Video
                   source={item.uservideo}
                     style={styles.image}
                     resizeMode="cover"
                     repeat
                     muted={!isMuted}
-                />
-                <TouchableOpacity style={styles.muteButton} onPress={toggleMute}>
-                        <Image 
-                        source={isMuted?require('../../assets/volume.png'):require('../../assets/mute.png')}
-                        style={{
-                            height:20,
-                            width:20,
-                          
-                        }}
+                /> */}
+                        <TouchableOpacity style={styles.muteButton} onPress={toggleMute}>
+                            <Image
+                                source={isMuted ? require('../../assets/volume.png') : require('../../assets/mute.png')}
+                                style={{
+                                    height: 20,
+                                    width: 20,
 
-                        />
-                     </TouchableOpacity>
-                 </>
-           
+                                }}
+
+                            />
+                        </TouchableOpacity>
+                    </>
+
                 }
-                      
 
-            </View> */}
+
+            </View>
             <View style={{
-                flexDirection:"row",
-                alignItems:"center",
-                padding:10,
-                paddingHorizontal:15,
-                justifyContent:"space-between"
+                flexDirection: "row",
+                alignItems: "center",
+                padding: 10,
+                paddingHorizontal: 15,
+                justifyContent: "space-between"
             }}>
                 <View style={{
-                    flexDirection:"row",
+                    flexDirection: "row",
                 }}>
                     <View>
                         <Image source={require('../../assets/heart.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
                     </View>
-                    <View style={{
-                        marginLeft:15
-                    }}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            setisBottamsheet(true)
+                        }}
+                        style={{
+                            marginLeft: 15
+                        }}>
                         <Image source={require('../../assets/chat-bubble.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
-                    </View>
+                    </TouchableOpacity>
                     <View style={{
-                        marginLeft:15
+                        marginLeft: 15
                     }}>
                         <Image source={require('../../assets/share.png')}
-                        style={{
-                            height:30,
-                            width:30,
-                            tintColor:COLORS.primary
-                        }}
+                            style={{
+                                height: 30,
+                                width: 30,
+                                tintColor: COLORS.primary
+                            }}
                         />
                     </View>
                 </View>
-                        <View>
-                            <Text style={{
-                                color:'#fff',
-                                fontSize:16,
-                                fontWeight:'700'
-                            }}>2023-11-28 05:26</Text>
-                        </View>
+                <View>
+                    <Text style={{
+                        color: '#fff',
+                        fontSize: 16,
+                        fontWeight: '700'
+                    }}>2023-11-28 05:26</Text>
+                </View>
             </View>
 
         </View>
     );
-
+    const handleClosePress = () => bottomSheetRef.current.close()
     return (
         <View style={{
             width: '100%',
             height: '100%',
+            backgroundColor: COLORS.secondary
         }}>
             <HeaderComponents navigation={navigation} title={'Home'} />
             <FlatList
@@ -217,7 +236,32 @@ const UserInsta = ({ navigation }) => {
                 keyExtractor={(item) => item.key}
 
             />
+            {
+                isBottamsheet && <>
+                    <BottomSheet
+                        ref={bottomSheetRef}
+                        index={1}
+                        snapPoints={snapPoints}
+                        onChange={handleSheetChanges}
+                        onDismiss={() => {
+                            setisBottamsheet(false)
+                        }}
+                        enableDismissOnClose={false}
 
+                    >
+                        <Button title="Close Sheet" onPress={() => {
+                            handleClosePress,
+                                setisBottamsheet(false)
+                        }} />
+                        {/* <Button title='click' onPress={dismiss()}></Button> */}
+                        <View style={styles.contentContainer}>
+                            <Text>Awesome 🎉</Text>
+
+                        </View>
+
+                    </BottomSheet>
+                </>
+            }
             <View>
                 <BottomMenu />
             </View>
@@ -258,13 +302,13 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.1,
         shadowRadius: 4,
         elevation: 3,
-    
+
     },
     image: {
         width: '100%',
@@ -277,8 +321,8 @@ const styles = StyleSheet.create({
         right: 10,
         padding: 8,
         borderRadius: 34,
-        backgroundColor:'rgb(120, 120, 120)',
-      },
+        backgroundColor: 'rgb(120, 120, 120)',
+    },
 })
 
 export default UserInsta
