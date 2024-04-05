@@ -6,8 +6,9 @@ import CustomSwitch from './src/screens/Animation/CustomSwitch';
 import * as Progress from 'react-native-progress';
 import AnimatedButton from './src/screens/Animation/AnimatedButton';
 import { useState } from 'react';
-import AnimationIntroNew from './src/screens/Animation/AnimationIntroNew';
-import AnimatedBottomTab from './src/screens/Animation/AnimatedBottomTab';
+
+
+import DrawerNavigator from './src/screens/src/navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
 
@@ -15,9 +16,12 @@ const App = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <NavigationContainer >
-    <AnimatedBottomTab />
-  </NavigationContainer>
+    <>
+    {/* <AnimatedBottomTab /> */}
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
+  </>
   )
 }
 const styles = StyleSheet.create({
