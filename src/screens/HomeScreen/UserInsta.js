@@ -296,8 +296,8 @@ const styles = StyleSheet.create({
         flex: 1
     },
     containerimage: {
-        width: '100%', // Adjust the width as needed
-        height: 300, // Adjust the height as needed
+        width: '100%',
+        height: 300,
         borderRadius: 8,
         overflow: 'hidden',
         shadowColor: '#000',
