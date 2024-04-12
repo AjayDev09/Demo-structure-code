@@ -18,7 +18,7 @@ const TabArr = [
 
 const Tab = createBottomTabNavigator();
 
-const animate1 = { 0: { scale: .5, translateY: 7 }, .92: { translateY: -34 }, 1: { scale: 1.2, translateY: -24 } }
+const animate1 = { 0: { scale: .5, translateY: 7 }, .92: { translateY: -50 }, 1: { scale: 1.2, translateY: -30 } }
 const animate2 = { 0: { scale: 1.2, translateY: -24 }, 1: { scale: 1, translateY: 7 } }
 
 const circle1 = { 0: { scale: 0 }, 0.3: { scale: .9 }, 0.5: { scale: .2 }, 0.8: { scale: .7 }, 1: { scale: 1 } }
@@ -85,7 +85,7 @@ const TabButton = (props) => {
 
 export default function AnimatedBottomTab() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ backgroundColor: 'pink', flex: 1}}>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -113,11 +113,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 70,
+    
   },
   tabBar: {
     height: 70,
     position: 'absolute',
-    margin: 16,
+     margin: 16,
     borderRadius: 16,
   },
   btn: {

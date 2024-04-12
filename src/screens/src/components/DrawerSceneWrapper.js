@@ -34,6 +34,7 @@ const DrawerSceneWrapper = ({children}) => {
     ],
     borderRadius: interpolate(progress.value, [0, 1], [0, 20], 'clamp'),
     overflow: 'hidden',
+
   }));
 
   return (
@@ -48,5 +49,6 @@ export default DrawerSceneWrapper;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
 });

@@ -4,6 +4,7 @@ import Colors from './Colors';
 const Styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:"pink"
     },
     rowView: {
         flexDirection: 'row',

@@ -10,6 +10,7 @@ import { useState } from 'react';
 
 import DrawerNavigator from './src/screens/src/navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import AnimatedBottomTab from './src/screens/Animation/AnimatedBottomTab';
 
 
 const App = () => {
@@ -17,9 +18,10 @@ const App = () => {
 
   return (
     <>
-    {/* <AnimatedBottomTab /> */}
+    
     <NavigationContainer>
       <DrawerNavigator />
+      {/* <AnimatedBottomTab /> */}
     </NavigationContainer>
   </>
   )

@@ -29,7 +29,7 @@ const Wishlist = ({navigation}) => {
   );
 };
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#fff', flex: 1},
+  container: {backgroundColor: 'pink', flex: 1},
   wrapper: {padding: 16},
   searchBar: {
     backgroundColor: '#fff',

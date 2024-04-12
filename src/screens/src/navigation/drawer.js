@@ -5,22 +5,70 @@ import Dashboard from '../screens/dashboard';
 import Wishlist from '../screens/wishlist';
 import History from '../screens/history';
 import {Image, Platform} from 'react-native';
+import AnimatedBottomTab from '../../Animation/AnimatedBottomTab';
+import Setting from '../screens/Setting';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
+  let Fn=(name)=>{
+    if(name== 'home-outline'){
+      return(
+        <Image 
+       source={require('../../../assets/home.png')}
+       style={{
+         height:20,
+         width:20,
+         alignItems:"center",
+         tintColor:"#000"
+        
+       }}
+       />
+      )
+    }else if( name =='heart-outline' ){
+      return(
+        <Image 
+        source={require('../../../assets/heart.png')}
+        style={{
+          height:20,
+          width:20,
+          alignItems:"center",
+         
+        }}
+        />
+      )
+    }
+    else if(name =='history'){
+      return(
+        <Image 
+        source={require('../../../assets/search.png')}
+        style={{
+          height:20,
+          width:20,
+          alignItems:"center",
+         
+        }}
+        />
+      )
+    }
+    else if(name =='setting'){
+      return(
+        <Image 
+        source={require('../../../assets/settings.png')}
+        style={{
+          height:20,
+          width:20,
+          alignItems:"center",
+         
+        }}
+        />
+      )
+    }
+  }
   const drawerIcon = ({focused, size}, name) => {
     return (
      <>
-         <Image 
-      source={require('../menu.png')}
-      style={{
-        height:20,
-        width:20,
-        alignItems:"center",
-       
-      }}
-      />
+        {Fn(name)}
      </>
     );
   };
@@ -37,7 +85,7 @@ const DrawerNavigator = () => {
         overlayColor: Colors.transparent,
         drawerStyle: {
           backgroundColor: Colors.bg,
-          width: '60%',
+          width: '55%',
           marginTop:50
         },
         sceneContainerStyle: {
@@ -65,6 +113,14 @@ const DrawerNavigator = () => {
           drawerIcon: options => drawerIcon(options, 'history'),
         }}
       />
+      <Drawer.Screen
+        name="Setting"
+        component={Setting}
+        options={{
+          drawerIcon: options => drawerIcon(options, 'setting'),
+        }}
+      />
+
     </Drawer.Navigator>
   );
 };
@@ -72,8 +128,8 @@ const DrawerNavigator = () => {
 export default DrawerNavigator;
 
 const Colors = {
-  bg: '#009688',
-  active: '#fff',
-  inactive: '#eee',
+  bg: '#e2e7eb',
+  active: '#000',
+  inactive: '#cccccc',
   transparent: 'transparent',
 };

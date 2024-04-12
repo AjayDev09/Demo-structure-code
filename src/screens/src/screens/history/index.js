@@ -20,7 +20,7 @@ const History = ({navigation}) => {
             }}
             />
             </TouchableOpacity>
-            <Text style={styles.searchTextPlaceHolder}>Dashboard</Text>
+            <Text style={styles.searchTextPlaceHolder}>History</Text>
           </View>
         </View>
       </SafeAreaView>
@@ -29,7 +29,7 @@ const History = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#fff', flex: 1},
+  container: {backgroundColor: 'pink', flex: 1},
   wrapper: {padding: 16},
   searchBar: {
     backgroundColor: '#fff',

@@ -10,11 +10,11 @@ export default function ColorScreen({ route, navigation }) {
   const [bgColor, setBgColor] = useState();
   useEffect(() => {
     switch (route.name) {
-      case 'Home': { setBgColor(Colors.primary); break; }
-      case 'Search': { setBgColor(Colors.green); break; }
-      case 'Add': { setBgColor(Colors.red); break; }
-      case 'Account': { setBgColor(Colors.purple); break; }
-      case 'Like': { setBgColor(Colors.yellow); break; }
+      case 'Home': { setBgColor('Home'); break; }
+      case 'Search': { setBgColor('Search'); break; }
+      case 'Add': { setBgColor('Add'); break; }
+      case 'Account': { setBgColor('Account'); break; }
+      case 'Like': { setBgColor('Like'); break; }
       default: setBgColor(Colors.white);
     }
   }, [])
@@ -26,7 +26,7 @@ export default function ColorScreen({ route, navigation }) {
   // }, [navigation])
   return (
     <Animated.View ref={viewRef} entering={FadeIn.duration(800)}
-      style={[Styles.container, { backgroundColor: bgColor }]}>
+      style={[Styles.container]}>
       {/* <MyHeader
         menu
         onPressMenu={() => navigation.goBack()}
@@ -34,7 +34,11 @@ export default function ColorScreen({ route, navigation }) {
         right="more-vertical"
         onRightPress={() => console.log('right')}
       /> */}
-      <View style={[Styles.container, { backgroundColor: bgColor }]}>
+      <View style={[Styles.container]}>
+        <Text style={{
+          paddingLeft:10,
+          color:'#000'
+        }}>{bgColor}</Text>
       </View>
     </Animated.View>
   )

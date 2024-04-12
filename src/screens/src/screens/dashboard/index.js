@@ -12,6 +12,7 @@ import React from 'react';
 import PropertyListingItem from '../../components/PropertyListingItem';
 import {sampleData} from '../../utils/sampleData';
 import DrawerSceneWrapper from '../../components/DrawerSceneWrapper';
+import AnimatedBottomTab from '../../../Animation/AnimatedBottomTab';
 
 const Dashboard = ({navigation}) => {
   const {openDrawer} = navigation;
@@ -32,6 +33,7 @@ const Dashboard = ({navigation}) => {
             />
             </TouchableOpacity>
             <Text style={styles.searchTextPlaceHolder}>Dashboard</Text>
+        
           </View>
           {/* <FlatList
             showsVerticalScrollIndicator={false}
@@ -39,6 +41,7 @@ const Dashboard = ({navigation}) => {
             renderItem={({item}) => <PropertyListingItem {...item} />}
           /> */}
         </View>
+    
       </SafeAreaView>
     </DrawerSceneWrapper>
   );
@@ -47,7 +50,7 @@ const Dashboard = ({navigation}) => {
 export default Dashboard;
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#fff', flex: 1},
+  container: {backgroundColor: 'pink', flex: 1},
   wrapper: {padding: 16},
   searchBar: {
     backgroundColor: '#fff',
