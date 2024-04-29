@@ -1,33 +1,54 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Button } from 'react-native'
 import React from 'react'
 import { getDataForAsync } from '../../CommanFunctions/CommanFunction';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import HeaderComponents from '../../components/HeaderComponents';
 import CustomInput from '../../components/CustomInput';
 import { useState } from 'react';
 import UserInsta from './UserInsta';
 import { COLORS } from '../../theme/color';
+import { Count, Decrement, set_data } from '../../redux/actions/LoginData';
 
 const Home = ({navigation}) => {
+  const dispatch = useDispatch();
   const Data = useSelector(state => {
+    return state.CounterReducer?.count;
+  });
+  const Datas = useSelector(state => {
     return state.GetData;
   });
+  let count= 5
   const [data, setData] = useState({
-    mail: '',
+    mail: 0,
     password: '',
   });
+  
   const handler = (v, i) => {
     setData(e => ({ ...e, [i]: v }));
   };
 
-console.log('data---0000------',Data);
+    const handleDispatch = () => {
+      Count()
+    };
+    const Decress = () => {
+      Decrement()
+    };
+    console.log('data---0000----2--',Data,Datas);
   return (
     <View style={{
       backgroundColor:COLORS.secondary,
-
+      flex:1,
+      justifyContent:'center',
+      alignItems:'center'
     }}>
-      <UserInsta navigation={navigation} /> 
+      {/* <UserInsta navigation={navigation} />  */}
+      <Button onPress={handleDispatch} title='Count'/>
+
+
+      <Button onPress={Decress} title='Decress'/>
+      
+      <Text>{Data}</Text>
     </View>
   )
 }

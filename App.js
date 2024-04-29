@@ -11,6 +11,10 @@ import { useState } from 'react';
 import DrawerNavigator from './src/screens/src/navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import AnimatedBottomTab from './src/screens/Animation/AnimatedBottomTab';
+import Home from './src/screens/HomeScreen/Home';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
+import Test from './src/screens/src/screens/Test';
 
 
 const App = () => {
@@ -19,10 +23,11 @@ const App = () => {
   return (
     <>
     
-    <NavigationContainer>
-      <DrawerNavigator />
+    <Provider store={store}>
+      <Test />
+      {/* <Home /> */}
       {/* <AnimatedBottomTab /> */}
-    </NavigationContainer>
+    </Provider>
   </>
   )
 }
